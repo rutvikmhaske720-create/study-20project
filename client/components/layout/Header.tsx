@@ -34,16 +34,11 @@ export function Header({ isDark, onThemeToggle }: HeaderProps) {
           </span>
         </Link>
 
-        <button
-          className="md:hidden"
-          onClick={() => setIsOpen(!isOpen)}
-        >
+        <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        <div className={cn(
-          "hidden md:flex items-center gap-8",
-        )}>
+        <div className={cn("hidden md:flex items-center gap-8")}>
           {isLoggedIn && (
             <>
               <Link

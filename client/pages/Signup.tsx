@@ -83,7 +83,9 @@ export default function Signup() {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium mb-2">Full Name</label>
+              <label className="block text-sm font-medium mb-2">
+                Full Name
+              </label>
               <div className="relative">
                 <User className="absolute left-3 top-3 w-5 h-5 text-muted-foreground" />
                 <input
@@ -131,7 +133,9 @@ export default function Signup() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Confirm Password</label>
+              <label className="block text-sm font-medium mb-2">
+                Confirm Password
+              </label>
               <div className="relative">
                 <Lock className="absolute left-3 top-3 w-5 h-5 text-muted-foreground" />
                 <input
@@ -158,7 +162,10 @@ export default function Signup() {
 
           <div className="mt-6 text-center text-sm text-muted-foreground">
             Already have an account?{" "}
-            <Link to="/login" className="text-primary font-semibold hover:underline">
+            <Link
+              to="/login"
+              className="text-primary font-semibold hover:underline"
+            >
               Sign in
             </Link>
           </div>

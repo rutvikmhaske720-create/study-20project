@@ -98,7 +98,7 @@ export default function Doubts() {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
 
       if (!response.ok) throw new Error("Failed to delete doubt");

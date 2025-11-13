@@ -15,6 +15,7 @@ A modern collaborative learning platform that helps users discover educational r
 ## Tech Stack
 
 ### Frontend
+
 - **React 18** - UI library
 - **Vite** - Build tool and dev server
 - **TailwindCSS** - Utility-first CSS
@@ -22,6 +23,7 @@ A modern collaborative learning platform that helps users discover educational r
 - **TypeScript** - Type safety
 
 ### Backend
+
 - **FastAPI** - Modern Python web framework
 - **SQLAlchemy** - ORM for database operations
 - **SQLite** - Database (can be upgraded to PostgreSQL)
@@ -75,6 +77,7 @@ A modern collaborative learning platform that helps users discover educational r
 ### Quick Start (Recommended)
 
 #### For macOS/Linux:
+
 ```bash
 cd backend
 chmod +x run.sh
@@ -82,6 +85,7 @@ chmod +x run.sh
 ```
 
 #### For Windows:
+
 ```bash
 cd backend
 run.bat
@@ -90,11 +94,13 @@ run.bat
 ### Backend Setup (Manual)
 
 1. **Navigate to backend folder:**
+
    ```bash
    cd backend
    ```
 
 2. **Create a virtual environment:**
+
    ```bash
    python -m venv venv
    ```
@@ -110,6 +116,7 @@ run.bat
      ```
 
 4. **Install dependencies:**
+
    ```bash
    pip install -r requirements.txt
    ```
@@ -117,6 +124,7 @@ run.bat
 5. **The `.env` file is already configured** - no changes needed for local development
 
 6. **Run the FastAPI server:**
+
    ```bash
    python main.py
    ```
@@ -127,17 +135,20 @@ run.bat
 ### Frontend Setup
 
 1. **Navigate to project root:**
+
    ```bash
    cd ..
    ```
 
 2. **Install dependencies:**
+
    ```bash
    pnpm install
    # or npm install
    ```
 
 3. **Run the development server:**
+
    ```bash
    pnpm dev
    # or npm run dev
@@ -157,6 +168,7 @@ You can use these credentials to log in and test the application.
 ## Development Workflow
 
 ### Terminal 1 - Backend
+
 ```bash
 cd backend
 source venv/bin/activate  # or venv\Scripts\activate on Windows
@@ -164,6 +176,7 @@ python main.py
 ```
 
 Or use the quick start script:
+
 ```bash
 cd backend
 ./run.sh  # macOS/Linux
@@ -171,6 +184,7 @@ cd backend
 ```
 
 ### Terminal 2 - Frontend
+
 ```bash
 pnpm dev
 ```
@@ -180,14 +194,17 @@ The frontend will connect to the backend at `http://localhost:8000`.
 ## API Endpoints
 
 ### Authentication
+
 - `POST /api/auth/signup` - User registration
 - `POST /api/auth/login` - User login
 - `GET /api/auth/me` - Get current user profile
 
 ### Search
+
 - `GET /api/search/{topic}` - Search for YouTube videos and articles
 
 ### Groups
+
 - `GET /api/groups` - List all groups
 - `POST /api/groups` - Create a new group
 - `GET /api/groups/{id}` - Get group details
@@ -196,9 +213,11 @@ The frontend will connect to the backend at `http://localhost:8000`.
 - `POST /api/groups/{id}/resources` - Share a resource in a group
 
 ### Dashboard
+
 - `GET /api/dashboard` - Get personalized dashboard data
 
 ### Doubts
+
 - `GET /api/doubts` - List all doubts
 - `POST /api/doubts` - Create a new doubt
 - `GET /api/doubts/{id}` - Get doubt details
@@ -228,6 +247,7 @@ CORS_ORIGINS=["http://localhost:5173", "http://localhost:3000"]
 ## Getting API Keys
 
 ### YouTube Data API v3
+
 1. Go to [Google Cloud Console](https://console.cloud.google.com/)
 2. Create a new project
 3. Enable "YouTube Data API v3"
@@ -235,6 +255,7 @@ CORS_ORIGINS=["http://localhost:5173", "http://localhost:3000"]
 5. Add the key to your `.env` file
 
 ### Bing Web Search API
+
 1. Go to [Azure Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/)
 2. Create a Bing Search resource
 3. Get your API key from the resource
@@ -243,12 +264,14 @@ CORS_ORIGINS=["http://localhost:5173", "http://localhost:3000"]
 ## Building for Production
 
 ### Frontend
+
 ```bash
 pnpm build
 # Output will be in dist/spa/
 ```
 
 ### Backend
+
 ```bash
 cd backend
 pip install -r requirements.txt
@@ -262,12 +285,14 @@ python main.py
 If you need to change the database (e.g., from SQLite to PostgreSQL):
 
 1. Update `DATABASE_URL` in `.env`:
+
    ```env
    # For PostgreSQL:
    DATABASE_URL=postgresql://user:password@localhost/learnconnect
    ```
 
 2. Install the PostgreSQL driver:
+
    ```bash
    pip install psycopg2-binary
    ```
@@ -277,34 +302,40 @@ If you need to change the database (e.g., from SQLite to PostgreSQL):
 ## Features in Detail
 
 ### User Authentication
+
 - Secure password hashing with bcrypt
 - JWT token-based authentication
 - User profiles with name, email, and profile picture
 
 ### Topic Search
+
 - Real-time search for YouTube videos
 - Article search using Bing Web Search API
 - Search history tracking for personalized recommendations
 
 ### Study Groups
+
 - Create topic-based study communities
 - Join groups to collaborate with other learners
 - Share learning resources (videos, articles, courses)
 - View group members and shared resources
 
 ### Dashboard
+
 - Personalized learning dashboard
 - Recent search history
 - Joined groups overview
 - Recommended topics based on interests
 
 ### Doubts & Questions
+
 - Post questions on any topic
 - View all community questions
 - Filter questions by topic
 - Community-driven learning
 
 ### Theme Support
+
 - Light and dark mode toggle
 - Persistent theme preference
 - Beautiful gradient UI elements
@@ -314,28 +345,34 @@ If you need to change the database (e.g., from SQLite to PostgreSQL):
 ### Login Page Errors
 
 **"Cannot connect to backend server"**
+
 - Make sure the FastAPI backend is running on `http://localhost:8000`
 - Run `python main.py` in the `backend` folder
 - Check that both frontend and backend are using the correct ports
 
 **Default user not logging in**
+
 - The default user `abc@abc.com` / `abc123` is created automatically when the backend starts
 - If you deleted the database, restart the backend to recreate it
 - Check the backend console output for "✓ Default user created" message
 
 ### CORS Errors
+
 If you get CORS errors, make sure:
+
 1. Backend is running on `http://localhost:8000`
 2. Frontend is running on `http://localhost:5173`
 3. CORS_ORIGINS in `.env` includes `http://localhost:5173`
 
 ### Database Issues
+
 - SQLite database is created automatically on first run
 - Delete `learnconnect.db` to reset the database (default user will be recreated)
 - For PostgreSQL, ensure the database exists before running
 - Update `DATABASE_URL` in `backend/.env` to use PostgreSQL
 
 ### API Key Issues
+
 - YouTube and Bing API keys are optional for development
 - The app will show placeholder results if keys are not configured
 - See "Getting API Keys" section above
@@ -352,6 +389,7 @@ MIT License - Feel free to use this project for learning and development.
 ## Summary
 
 LearnConnect is a complete, production-ready learning platform that combines:
+
 - Modern frontend with React and TailwindCSS
 - Powerful FastAPI backend
 - Beautiful UI with dark mode support

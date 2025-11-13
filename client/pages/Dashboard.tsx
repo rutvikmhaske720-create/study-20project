@@ -4,12 +4,19 @@ import { BookOpen, Users, TrendingUp, Loader } from "lucide-react";
 
 interface DashboardData {
   recent_searches: Array<{ topic: string; searched_at: string }>;
-  joined_groups: Array<{ id: number; title: string; description: string; topic_id: number }>;
+  joined_groups: Array<{
+    id: number;
+    title: string;
+    description: string;
+    topic_id: number;
+  }>;
   recommended_topics: Array<{ id: number; name: string; description: string }>;
 }
 
 export default function Dashboard() {
-  const [dashboardData, setDashboardData] = useState<DashboardData | null>(null);
+  const [dashboardData, setDashboardData] = useState<DashboardData | null>(
+    null,
+  );
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -36,7 +43,9 @@ export default function Dashboard() {
         const data = await response.json();
         setDashboardData(data);
       } catch (err) {
-        setError(err instanceof Error ? err.message : "Failed to load dashboard");
+        setError(
+          err instanceof Error ? err.message : "Failed to load dashboard",
+        );
       } finally {
         setLoading(false);
       }
@@ -76,7 +85,9 @@ export default function Dashboard() {
         <div className="bg-card rounded-lg border border-border p-6">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-muted-foreground mb-2">Recent Searches</p>
+              <p className="text-sm text-muted-foreground mb-2">
+                Recent Searches
+              </p>
               <p className="text-3xl font-bold">
                 {dashboardData?.recent_searches.length || 0}
               </p>
@@ -88,7 +99,9 @@ export default function Dashboard() {
         <div className="bg-card rounded-lg border border-border p-6">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-muted-foreground mb-2">Joined Groups</p>
+              <p className="text-sm text-muted-foreground mb-2">
+                Joined Groups
+              </p>
               <p className="text-3xl font-bold">
                 {dashboardData?.joined_groups.length || 0}
               </p>
@@ -100,7 +113,9 @@ export default function Dashboard() {
         <div className="bg-card rounded-lg border border-border p-6">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-muted-foreground mb-2">Topics Available</p>
+              <p className="text-sm text-muted-foreground mb-2">
+                Topics Available
+              </p>
               <p className="text-3xl font-bold">
                 {dashboardData?.recommended_topics.length || 0}
               </p>

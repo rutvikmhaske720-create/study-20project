@@ -12,7 +12,8 @@ export default function Index() {
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               LearnConnect is a modern learning platform that helps you discover
-              educational resources and connect with fellow learners around the world.
+              educational resources and connect with fellow learners around the
+              world.
             </p>
             <div className="flex gap-4 justify-center flex-col sm:flex-row">
               <Link
@@ -88,9 +89,12 @@ export default function Index() {
               <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-4">
                 1
               </div>
-              <h3 className="text-lg font-semibold mb-2">Create Your Profile</h3>
+              <h3 className="text-lg font-semibold mb-2">
+                Create Your Profile
+              </h3>
               <p className="text-muted-foreground text-sm">
-                Sign up and tell us what you want to learn. Add your interests to personalize your experience.
+                Sign up and tell us what you want to learn. Add your interests
+                to personalize your experience.
               </p>
             </div>
             <div>
@@ -99,7 +103,8 @@ export default function Index() {
               </div>
               <h3 className="text-lg font-semibold mb-2">Explore & Learn</h3>
               <p className="text-muted-foreground text-sm">
-                Search for any topic and access curated YouTube videos and articles to enhance your knowledge.
+                Search for any topic and access curated YouTube videos and
+                articles to enhance your knowledge.
               </p>
             </div>
             <div>
@@ -108,7 +113,8 @@ export default function Index() {
               </div>
               <h3 className="text-lg font-semibold mb-2">Connect & Grow</h3>
               <p className="text-muted-foreground text-sm">
-                Join study groups, share resources, ask questions, and learn from a community of passionate learners.
+                Join study groups, share resources, ask questions, and learn
+                from a community of passionate learners.
               </p>
             </div>
           </div>
@@ -121,7 +127,8 @@ export default function Index() {
             Ready to Start Learning?
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join thousands of learners discovering educational resources and growing together.
+            Join thousands of learners discovering educational resources and
+            growing together.
           </p>
           <Link
             to="/signup"

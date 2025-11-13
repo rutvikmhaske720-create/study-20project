@@ -48,14 +48,11 @@ export default function GroupDetail() {
 
     const fetchGroup = async () => {
       try {
-        const response = await fetch(
-          `http://localhost:8000/api/groups/${id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        const response = await fetch(`http://localhost:8000/api/groups/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
         if (!response.ok) throw new Error("Failed to fetch group");
         const data = await response.json();
@@ -84,7 +81,7 @@ export default function GroupDetail() {
             Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify(shareData),
-        }
+        },
       );
 
       if (!response.ok) throw new Error("Failed to share resource");
@@ -107,7 +104,7 @@ export default function GroupDetail() {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
 
       if (!response.ok) throw new Error("Failed to leave group");
@@ -280,9 +277,14 @@ export default function GroupDetail() {
             </h2>
             <div className="space-y-3 mb-6">
               {group.members.map((member) => (
-                <div key={member.id} className="py-2 border-b border-border last:border-0">
+                <div
+                  key={member.id}
+                  className="py-2 border-b border-border last:border-0"
+                >
                   <p className="font-semibold text-sm">{member.name}</p>
-                  <p className="text-xs text-muted-foreground">{member.email}</p>
+                  <p className="text-xs text-muted-foreground">
+                    {member.email}
+                  </p>
                 </div>
               ))}
             </div>

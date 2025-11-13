@@ -30,7 +30,7 @@ export default function Login() {
         } catch {
           if (response.status === 0 || response.type === "opaque") {
             throw new Error(
-              "Cannot connect to backend server. Make sure FastAPI is running on http://localhost:8000"
+              "Cannot connect to backend server. Make sure FastAPI is running on http://localhost:8000",
             );
           }
           throw new Error(`Login failed: ${response.statusText}`);
@@ -73,8 +73,18 @@ export default function Login() {
 
           <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 text-blue-800 dark:text-blue-200 px-4 py-3 rounded-lg mb-6 text-sm">
             <p className="font-semibold mb-1">Demo Credentials:</p>
-            <p>Email: <code className="bg-white dark:bg-slate-800 px-1 rounded">abc@abc.com</code></p>
-            <p>Password: <code className="bg-white dark:bg-slate-800 px-1 rounded">abc123</code></p>
+            <p>
+              Email:{" "}
+              <code className="bg-white dark:bg-slate-800 px-1 rounded">
+                abc@abc.com
+              </code>
+            </p>
+            <p>
+              Password:{" "}
+              <code className="bg-white dark:bg-slate-800 px-1 rounded">
+                abc123
+              </code>
+            </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -120,7 +130,10 @@ export default function Login() {
 
           <div className="mt-6 text-center text-sm text-muted-foreground">
             Don't have an account?{" "}
-            <Link to="/signup" className="text-primary font-semibold hover:underline">
+            <Link
+              to="/signup"
+              className="text-primary font-semibold hover:underline"
+            >
               Sign up
             </Link>
           </div>

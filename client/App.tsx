@@ -22,7 +22,7 @@ const queryClient = new QueryClient();
 
 const AppContent = () => {
   const [isDark, setIsDark] = useState(
-    localStorage.getItem("theme") === "dark"
+    localStorage.getItem("theme") === "dark",
   );
 
   useEffect(() => {
@@ -46,7 +46,10 @@ const AppContent = () => {
             <Route
               path="/"
               element={
-                <Layout isDark={isDark} onThemeToggle={() => setIsDark(!isDark)}>
+                <Layout
+                  isDark={isDark}
+                  onThemeToggle={() => setIsDark(!isDark)}
+                >
                   <Index />
                 </Layout>
               }
@@ -56,7 +59,10 @@ const AppContent = () => {
             <Route
               path="/dashboard"
               element={
-                <Layout isDark={isDark} onThemeToggle={() => setIsDark(!isDark)}>
+                <Layout
+                  isDark={isDark}
+                  onThemeToggle={() => setIsDark(!isDark)}
+                >
                   <Dashboard />
                 </Layout>
               }
@@ -64,7 +70,10 @@ const AppContent = () => {
             <Route
               path="/search"
               element={
-                <Layout isDark={isDark} onThemeToggle={() => setIsDark(!isDark)}>
+                <Layout
+                  isDark={isDark}
+                  onThemeToggle={() => setIsDark(!isDark)}
+                >
                   <Search />
                 </Layout>
               }
@@ -72,7 +81,10 @@ const AppContent = () => {
             <Route
               path="/groups"
               element={
-                <Layout isDark={isDark} onThemeToggle={() => setIsDark(!isDark)}>
+                <Layout
+                  isDark={isDark}
+                  onThemeToggle={() => setIsDark(!isDark)}
+                >
                   <Groups />
                 </Layout>
               }
@@ -80,7 +92,10 @@ const AppContent = () => {
             <Route
               path="/groups/:id"
               element={
-                <Layout isDark={isDark} onThemeToggle={() => setIsDark(!isDark)}>
+                <Layout
+                  isDark={isDark}
+                  onThemeToggle={() => setIsDark(!isDark)}
+                >
                   <GroupDetail />
                 </Layout>
               }
@@ -88,7 +103,10 @@ const AppContent = () => {
             <Route
               path="/doubts"
               element={
-                <Layout isDark={isDark} onThemeToggle={() => setIsDark(!isDark)}>
+                <Layout
+                  isDark={isDark}
+                  onThemeToggle={() => setIsDark(!isDark)}
+                >
                   <Doubts />
                 </Layout>
               }

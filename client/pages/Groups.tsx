@@ -97,7 +97,7 @@ export default function Groups() {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
 
       if (!response.ok) throw new Error("Failed to join group");
@@ -146,7 +146,9 @@ export default function Groups() {
           <h2 className="text-2xl font-bold mb-6">Create a New Group</h2>
           <form onSubmit={handleCreateGroup} className="space-y-4 max-w-2xl">
             <div>
-              <label className="block text-sm font-medium mb-2">Group Title</label>
+              <label className="block text-sm font-medium mb-2">
+                Group Title
+              </label>
               <input
                 type="text"
                 value={formData.title}
@@ -160,7 +162,9 @@ export default function Groups() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Description</label>
+              <label className="block text-sm font-medium mb-2">
+                Description
+              </label>
               <textarea
                 value={formData.description}
                 onChange={(e) =>
