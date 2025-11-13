@@ -1,7 +1,6 @@
 from pydantic_settings import BaseSettings
 from functools import lru_cache
 import json
-import os
 
 
 class Settings(BaseSettings):
@@ -24,17 +23,13 @@ class Settings(BaseSettings):
         env_file = ".env"
         case_sensitive = True
 
-    @classmethod
-    def settings_customise_sources(cls, settings_cls, init_settings, env_settings, dotenv_settings, file_settings, init_kwargs):
-        """Custom source handling for CORS_ORIGINS to support JSON parsing from env"""
-        if "CORS_ORIGINS" in env_settings:
-            cors_value = env_settings["CORS_ORIGINS"]
-            if isinstance(cors_value, str):
-                try:
-                    env_settings["CORS_ORIGINS"] = json.loads(cors_value)
-                except json.JSONDecodeError:
-                    env_settings["CORS_ORIGINS"] = [cors_value]
-        return super().settings_customise_sources(settings_cls, init_settings, env_settings, dotenv_settings, file_settings, init_kwargs)
+    def __init__(self, **data):
+        super().__init__(**data)
+        if isinstance(self.CORS_ORIGINS, str):
+            try:
+                self.CORS_ORIGINS = json.loads(self.CORS_ORIGINS)
+            except (json.JSONDecodeError, TypeError):
+                self.CORS_ORIGINS = ["http://localhost:5173", "http://localhost:3000"]
 
 
 @lru_cache()
