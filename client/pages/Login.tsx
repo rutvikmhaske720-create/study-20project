@@ -24,8 +24,17 @@ export default function Login() {
       });
 
       if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.detail || "Login failed");
+        try {
+          const data = await response.json();
+          throw new Error(data.detail || "Login failed");
+        } catch {
+          if (response.status === 0 || response.type === "opaque") {
+            throw new Error(
+              "Cannot connect to backend server. Make sure FastAPI is running on http://localhost:8000"
+            );
+          }
+          throw new Error(`Login failed: ${response.statusText}`);
+        }
       }
 
       const data = await response.json();
@@ -34,7 +43,9 @@ export default function Login() {
 
       navigate("/dashboard");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Login failed");
+      const errorMessage = err instanceof Error ? err.message : "Login failed";
+      setError(errorMessage);
+      console.error("Login error:", err);
     } finally {
       setLoading(false);
     }
